@@ -54,7 +54,6 @@ const userFlow = async (actionRequired=false) => {
   if (apiResult.value.success) {
     userState.value.session = apiResult.value.data.uuid
     lastAction.value = apiResult.value.data.actionRequired 
-    rest.defaults.headers.common["Authorization"] = apiResult.value.data.uuid
     if (apiResult.value.data.done) {
       userState.value.authenticated = true;
       router.push('/')
